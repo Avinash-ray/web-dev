@@ -25,3 +25,7 @@ console.log(fs.readFileSync(filepath,"utf-8"))
 if(!fs.existsSync("Meri folder"))
 fs.mkdirSync("Meri folder")
 
+// Read a directory
+let directorypath= "C:\\Fjp-6 dev\\Module-2\\Nodejs"
+let foldercontent= fs.readdirSync(directorypath)
+console.log(foldercontent)
