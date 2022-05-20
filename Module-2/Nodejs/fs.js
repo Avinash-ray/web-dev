@@ -29,3 +29,6 @@ fs.mkdirSync("Meri folder")
 let directorypath= "C:\\Fjp-6 dev\\Module-2\\Nodejs"
 let foldercontent= fs.readdirSync(directorypath)
 console.log(foldercontent)
+
+// delete a directory
+// fs.rmdirSync("meri folder")
