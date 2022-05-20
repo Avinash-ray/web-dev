@@ -32,3 +32,8 @@ console.log(foldercontent)
 
 // delete a directory
 // fs.rmdirSync("meri folder")
+
+// copy a file
+let sourcepath= path.join(__dirname,"copying.txt")
+let destinationpath= path.join(__dirname,"copy folder",'copying.txt')
+fs.copyFileSync(sourcepath, destinationpath)
