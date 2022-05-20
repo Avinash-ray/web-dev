@@ -20,3 +20,8 @@ console.log(fs.readFileSync(filepath,"utf-8"))
 
 // delete a file---unlinkSync
 // fs.unlinkSync(filepath)
+
+// Make a directory
+if(!fs.existsSync("Meri folder"))
+fs.mkdirSync("Meri folder")
+
