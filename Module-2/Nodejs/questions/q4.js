@@ -1,9 +1,23 @@
 // read content of unorganised folder and make  an array which has extension name of each file
 
-let fs = require("fs");
-let path = require("path");
+let fs= require('fs')
+let path= require('path')
 
-let folderKaPath = path.join(__dirname,"..","unorganised");
-// console.log(folderKaPath);
-let content = fs.readdirSync(folderKaPath)
-// console.log(content);
+let folderpath= path.join(__dirname,"Unorganise q4")
+// console.log(folderpath)
+let content= (fs.readdirSync(folderpath))
+
+// console.log(fs.readdirSync("Unorganise q4"))
+console.log(content)
+
+let extarr= []
+for(let i=0; i< content.length; i++){
+    let name= content[i]
+    let extensionname= path.extname(name)
+    console.log(extensionname)
+    // extarr[i]=extensionname
+    extarr.push(extensionname)
+}
+console.log(extarr)
+
+
