@@ -15,12 +15,21 @@ let extensions= {
 if(folderexists){
     // console.log("valid path")
     let files= fs.readdirSync(folderpath)
-    console.log(files)
+    // console.log(files)
     for(let i=0; i< files.length; i++){
         let extName= path.extname(files[i])
         // console.log(extName)
         let foldername= giveFolderName(extName);
-        console.log("ext----", extName," foldername--",foldername)
+        // console.log("ext----", extName," foldername--",foldername)
+        let pathoffolders= path.join(folderpath,foldername)
+        let exists= fs.existsSync(pathoffolders)
+        if(exists){
+                movefile(folderpath,pathoffolders,files[i])
+        }
+        else{
+            fs.mkdirSync(pathoffolders)
+            movefile(folderpath,pathoffolders,files[i])
+        }
     }
 }
 else{
@@ -39,4 +48,11 @@ function giveFolderName(ext){
 
     }
     return 'others'
+}
+
+function movefile(folderpath,pathoffolders,fileName){
+    let sourcepath= path.join(folderpath,fileName)
+    let destinationpath= path.join(pathoffolders,fileName)
+    fs.copyFileSync(sourcepath,destinationpath)
+    fs.unlinkSync(sourcepath)
 }
